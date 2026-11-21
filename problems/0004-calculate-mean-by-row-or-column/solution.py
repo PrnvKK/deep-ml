@@ -7,5 +7,3 @@ def calculate_matrix_mean(matrix: list[list[float]], mode: str) -> list[float]:
     else:
         np_matrix = np.array(matrix)
         return np.mean(np_matrix, axis=1).tolist()
-            
-    return res
