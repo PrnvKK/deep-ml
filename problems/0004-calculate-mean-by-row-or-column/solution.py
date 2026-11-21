@@ -1,20 +1,11 @@
-def calculate_matrix_mean(matrix: list[list[float]], mode: str) -> list[float]:
-    i, j = len(matrix), len(matrix[0])
+import numpy as np
 
+def calculate_matrix_mean(matrix: list[list[float]], mode: str) -> list[float]:
     if mode == "column":
-        res = []
-        for col in range(j):
-            total = 0
-            for row in range(i):
-                total += matrix[row][col]
-            res.append(float(total/i))
-    
+        np_matrix = np.array(matrix)
+        return np.mean(np_matrix, axis=0).tolist()
     else:
-        res = []
-        for row in range(i):
-            total = 0
-            for col in range(j):
-                total += matrix[row][col]
-            res.append(float(total/j))
+        np_matrix = np.array(matrix)
+        return np.mean(np_matrix, axis=1).tolist()
             
     return res
